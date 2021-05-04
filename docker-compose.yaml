@@ -1,0 +1,43 @@
+version: "3"
+services:
+  web:
+    build: .
+    ports:
+      - 8080:80
+    networks:
+      - test-network
+    volumes:
+      - .:/var/www/html
+#  clickhouse-database:
+#    image: 'yandex/clickhouse-server'
+#    ulimits:
+#      nofile:
+#        soft: "262144"
+#        hard: "262144"
+#    environment:
+#      - POSTGRES_DB=faq
+#      - POSTGRES_USER=faq
+#      - POSTGRES_PASSWORD=faq
+#    networks:
+#      - test-network
+#    ports:
+#      - 8123:8123
+#      - 9000:9000
+  database:
+    image: 'postgres'
+    restart: always
+    environment:
+      - POSTGRES_DB=faq
+      - POSTGRES_USER=faq
+      - POSTGRES_PASSWORD=faq
+    networks:
+      - test-network
+    ports:
+      - 5432:5432
+#  db-management:
+#    image: 'adminer'
+#    restart: always
+#    ports:
+#      - 8080:8080
+networks:
+  test-network:

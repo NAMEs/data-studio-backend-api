@@ -1,0 +1,30 @@
++--------+----------+----------------------------------------------+------------------------------+-------------------------------------------------------------------------------+------------+
+| Domain | Method   | URI                                          | Name                         | Action                                                                        | Middleware |
++--------+----------+----------------------------------------------+------------------------------+-------------------------------------------------------------------------------+------------+
+|        | GET|HEAD | api/user                                     |                              | Closure                                                                       | api        |
+|        |          |                                              |                              |                                                                               | auth:api   |
+|        | GET|HEAD | /                                            |                              | Closure                                                                       | web        |
+|        | DELETE   | _api/connection-string/{connection_string}   | connection-string.delete-one | App\Http\Controllers\ConnectionStringController@deleteOne                     | web        |
+|        | GET|HEAD | _api/connection-string                       | connection-string.get-many   | App\Http\Controllers\ConnectionStringController@getMany                       | web        |
+|        | GET|HEAD | _api/connection-string/{connection_string}   | connection-string.get-one    | App\Http\Controllers\ConnectionStringController@getOne                        | web        |
+|        | POST     | _api/connection-string                       | connection-string.insert-one | App\Http\Controllers\ConnectionStringController@insertOne                     | web        |
+|        | GET|HEAD | _api/connection-string/test                  | connection-string.test       | App\Http\Controllers\ConnectionStringController@checkConnectionString         | web        |
+|        | PATCH    | _api/connection-string/{connection_string}   | connection-string.update-one | App\Http\Controllers\ConnectionStringController@updateOne                     | web        |
+|        | GET|HEAD | _api/data-source/{query}/{connection_string} | data-source.get-one          | App\Http\Controllers\DataSourceController@getDataSourceFromConnStringAndQuery | web        |
+|        | DELETE   | _api/element/{element}                       | element.delete-one           | App\Http\Controllers\ElementController@deleteOne                              | web        |
+|        | GET|HEAD | _api/element                                 | element.get-many             | App\Http\Controllers\ElementController@getMany                                | web        |
+|        | GET|HEAD | _api/element/{element}                       | element.get-one              | App\Http\Controllers\ElementController@getOne                                 | web        |
+|        | POST     | _api/element                                 | element.insert-one           | App\Http\Controllers\ElementController@insertOne                              | web        |
+|        | PATCH    | _api/element/{element}                       | element.update-one           | App\Http\Controllers\ElementController@updateOne                              | web        |
+|        | DELETE   | _api/query-param/{query_param}               | query-param.delete-one       | App\Http\Controllers\QueryParamController@deleteOne                           | web        |
+|        | GET|HEAD | _api/query-param                             | query-param.get-many         | App\Http\Controllers\QueryParamController@getMany                             | web        |
+|        | GET|HEAD | _api/query-param/{query_param}               | query-param.get-one          | App\Http\Controllers\QueryParamController@getOne                              | web        |
+|        | POST     | _api/query-param                             | query-param.insert-one       | App\Http\Controllers\QueryParamController@insertOne                           | web        |
+|        | PATCH    | _api/query-param/{query_param}               | query-param.update-one       | App\Http\Controllers\QueryParamController@updateOne                           | web        |
+|        | DELETE   | _api/query/{query}                           | query.delete-one             | App\Http\Controllers\QueryController@deleteOne                                | web        |
+|        | GET|HEAD | _api/query                                   | query.get-many               | App\Http\Controllers\QueryController@getMany                                  | web        |
+|        | GET|HEAD | _api/query/{query}                           | query.get-one                | App\Http\Controllers\QueryController@getOne                                   | web        |
+|        | POST     | _api/query                                   | query.insert-one             | App\Http\Controllers\QueryController@insertOne                                | web        |
+|        | GET|HEAD | _api/query/test/{connection_string}          | query.test                   | App\Http\Controllers\QueryController@checkSQL                                 | web        |
+|        | PATCH    | _api/query/{query}                           | query.update-one             | App\Http\Controllers\QueryController@updateOne                                | web        |
++--------+----------+----------------------------------------------+------------------------------+-------------------------------------------------------------------------------+------------+
